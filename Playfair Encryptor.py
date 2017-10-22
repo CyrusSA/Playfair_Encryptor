@@ -11,7 +11,7 @@ for a in key: #Removing duplicate elements
 
 alphaList=[]
 for a in range(65,91):#generating list of cipher alphabet
-    if chr(a) not in keyList and chr(a)!='X':
+    if chr(a) not in keyList and chr(a)!='Q':
         alphaList.append(chr(a))
 keyAlphaList = keyList + alphaList
 
@@ -49,8 +49,32 @@ for i in plaintextList:
     a+=i
     k+=1
 plaintextDuos.append(a)
+print(plaintextDuos)
 
-
+ciphertextDuos=[]
+for currentPair in plaintextDuos:
+    ciphertextPair=''
+    indexList=[]
+    for currentElem in currentPair:
+        for i in range(5):
+            for j in range(5):
+                if keyMatrix[i][j]==currentElem:
+                    indexList.extend([i,j])
+    if indexList[0]==indexList[2]: #checking to see if samerow/column/not
+        indexList[1]+=1
+        indexList[3]+=1
+    elif indexList[1]==indexList[3]:
+        indexList[0]+=1
+        indexList[2]+=1
+    else:
+        indexList[1],indexList[3]=indexList[3],indexList[1]
+    for k in range(len(indexList)): #to wrap around
+        if indexList[k]>4:
+            indexList[k]-=5
+    ciphertextPair = keyMatrix[indexList[0]][indexList[1]] + keyMatrix[indexList[2]][indexList[3]]
+    ciphertextDuos.append(ciphertextPair)
+print(ciphertextDuos)
+    
 
 
 
