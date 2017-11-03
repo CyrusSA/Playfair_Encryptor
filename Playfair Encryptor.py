@@ -1,5 +1,3 @@
-key = 'PLAYFAIR'
-plaintext = 'HELLOWORLD'
 print("Playfair encryptor 1.0")
 print("Please ensure all input is all caps, and has no numbers or spaces.")
 key = input("Enter key: ")
