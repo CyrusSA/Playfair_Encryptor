@@ -1,5 +1,9 @@
 key = 'PLAYFAIR'
 plaintext = 'HELLOWORLD'
+print("Playfair encryptor 1.0")
+print("Please ensure all input is all caps, and has no numbers or spaces.")
+key = input("Enter key: ")
+plaintext = input("Enter plaitext: ")
 
 keyList=[]
 
@@ -22,10 +26,6 @@ for i in range(5): #making cipher matrix
     for j in range(5):
         keyMatrix[i][j] = keyAlphaList[k]
         k+=1
-for i in range(5):
-    for j in range(5):
-        print(keyMatrix[i][j], end='')
-    print()
 
 plaintextList = []
 
@@ -49,7 +49,6 @@ for i in plaintextList:
     a+=i
     k+=1
 plaintextDuos.append(a)
-print(plaintextDuos)
 
 ciphertextDuos=[]
 for currentPair in plaintextDuos:
@@ -73,7 +72,13 @@ for currentPair in plaintextDuos:
             indexList[k]-=5
     ciphertextPair = keyMatrix[indexList[0]][indexList[1]] + keyMatrix[indexList[2]][indexList[3]]
     ciphertextDuos.append(ciphertextPair)
-print(ciphertextDuos)
+
+ciphertext = ''
+
+for a in ciphertextDuos:
+	ciphertext+=a
+
+print("Ciphertext:", ciphertext)
     
 
 
