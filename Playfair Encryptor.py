@@ -1,7 +1,7 @@
 print("Playfair encryptor 1.0")
 print("Please ensure all input is all caps, and has no numbers or spaces.")
 key = input("Enter key: ")
-plaintext = input("Enter plaitext: ")
+plaintext = input("Enter plaintext: ")
 
 keyList=[]
 
